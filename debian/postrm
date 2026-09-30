@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+
+if [ "$1" = purge ]; then
+    rm -rf /var/lib/moon
+    if getent passwd moon >/dev/null; then deluser --system moon >/dev/null || true; fi
+    if getent group moon >/dev/null; then delgroup --system moon >/dev/null || true; fi
+fi
+if command -v systemctl >/dev/null 2>&1; then
+    systemctl daemon-reload || true
+fi
+
+exit 0

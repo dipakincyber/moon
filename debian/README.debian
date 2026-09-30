@@ -1,0 +1,12 @@
+Moon installs and enables moon-personal.service, a system service that runs
+the daemon continuously under the unprivileged moon account. Its state is in
+/var/lib/moon. This service is suitable for unattended operation, but desktop
+notifications and desktop audio are only available to a logged-in user session.
+
+For desktop notifications and audio, enable the per-user service after
+installing the package:
+
+  systemctl --user enable --now moon-personal-user.service
+
+The user service uses the normal ~/.config/moon state and can be disabled with
+systemctl --user disable --now moon-personal-user.service.

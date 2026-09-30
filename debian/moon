@@ -1,0 +1,4 @@
+#!/bin/sh
+set -e
+export PYTHONPATH=/usr/lib/moon${PYTHONPATH:+:$PYTHONPATH}
+exec python3 -m moon.cli "$@"

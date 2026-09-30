@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+
+if ! getent group moon >/dev/null; then
+    addgroup --system moon >/dev/null
+fi
+if ! getent passwd moon >/dev/null; then
+    adduser --system --ingroup moon --home /var/lib/moon --no-create-home \
+        --disabled-login --disabled-password moon >/dev/null
+fi
+install -d -o moon -g moon -m 0750 /var/lib/moon
+
+if command -v systemctl >/dev/null 2>&1; then
+    systemctl daemon-reload || true
+    systemctl enable --now moon-personal.service || true
+fi
+
+exit 0

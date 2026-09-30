@@ -1,0 +1,12 @@
+[Unit]
+Description=Moon personal companion daemon for the logged-in user
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/moon daemon
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

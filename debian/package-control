@@ -1,0 +1,11 @@
+Package: moon-personal
+Version: 0.1.0
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: Moon Personal Maintainers <maintainers@example.invalid>
+Depends: python3 (>= 3.10), python3-tk, adduser, systemd | systemd-sysv
+Description: private personal companion CLI and daemon
+ Moon is a local-first Linux companion CLI for daily messages, period notes,
+ hydration reminders, and alarms. The packaged daemon is enabled by default
+ as a systemd service and runs continuously in the background.
